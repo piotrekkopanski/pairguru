@@ -1,0 +1,17 @@
+= simple_form_for [@movie, Comment.new] do |f|
+  - if flash[:error].present? 
+    - flash[:error].each do |msg,k|
+      %div.form-group
+      .col-md-5.col-md-offset-4
+        = msg if msg != 'user_id'
+        - k.each do |n|
+          = n
+  %div.form-group
+    .col-md-8.col-md-offset-4
+      = f.label :description
+    .col-md-8.col-md-offset-4
+      = f.text_area :description, cols: "40", rows: "3"
+  %div.row
+    %div.col-md-1.col-md-offset-4
+      .form-actions
+        = f.submit

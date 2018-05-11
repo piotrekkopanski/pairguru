@@ -1,0 +1,4 @@
+$('#edit_comment_<%= @comment.id %>').remove();
+'<%=flash.now[:notice] = "Comment was successfully deleted." %>'
+$("#main-region").html('<%= j render partial: "layouts/messages" %>');
+$("#flash_notice").html("Comment was successfully deleted.");

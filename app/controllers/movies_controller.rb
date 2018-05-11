@@ -20,4 +20,8 @@ class MoviesController < ApplicationController
     MovieExporter.new.call(current_user, file_path)
     redirect_to root_path, notice: "Movies exported"
   end
+
+  def best_users
+    @users = User.joins(:comments).where("comments.created_at > ?", 7.days.ago).sort_by { |m| m.comments.size }.uniq.reverse
+  end
 end

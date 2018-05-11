@@ -1,0 +1,12 @@
+.row
+  %div.col-md-1
+    Name
+  %div.col-md-11
+    Counts
+  %br
+  - @users.each do |user|
+    %div.col-md-1
+      = user.name
+    %div.col-md-1
+      = user.comments.size
+    %br

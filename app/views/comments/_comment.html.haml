@@ -1,0 +1,5 @@
+.col-md-12{:id => "edit_comment_#{comment.id}"}
+  = comment.description
+  %span.info.text-muted
+    = time_ago_in_words(comment.created_at)
+  = link_to "Delete", movie_comment_path(@movie, comment), method: :delete, data: { confirm: 'Are you sure?' }, remote: true if comment.user == current_user
